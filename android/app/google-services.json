@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "646484929568",
+    "project_id": "hotel-34ed3",
+    "storage_bucket": "hotel-34ed3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646484929568:android:164a2c56a933411e0be045",
+        "android_client_info": {
+          "package_name": "com.example.travoma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646484929568-j7jmrtmp3g4p1j9lfv8g98u368s20kb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgLYqr5tg-06CIFqt-LsdnIdkfxBvXDKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646484929568-j7jmrtmp3g4p1j9lfv8g98u368s20kb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
