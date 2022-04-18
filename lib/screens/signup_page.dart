@@ -1,13 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hotel_booking/models/user_provider.dart';
 import 'package:hotel_booking/screens/loginscreen.dart';
 import 'package:hotel_booking/utils/auth_controller.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
   get img => null;
+  late UserProvider user;
 
   @override
   Widget build(BuildContext context) {
@@ -110,14 +119,23 @@ class SignUpPage extends StatelessWidget {
                     ),
                     Center(
                       child: GestureDetector(
-                        onTap: () {
-                          AuthController.instance
+                        onTap: () async {
+                          user = await UserProvider(
+                              emailController.text, passwordController.text);
+                          await AuthController.instance
                               .register(emailController.text.trim(),
                                   passwordController.text.trim())
-                              .then((value) => Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginPage())));
+                              .then((value) async {
+                            await FirebaseFirestore.instance
+                                .collection('user')
+                                .doc(FirebaseAuth.instance.currentUser?.uid
+                                    .toString())
+                                .set(user.toMap());
+                            await Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()));
+                          });
                           ;
                         },
                         child: Container(

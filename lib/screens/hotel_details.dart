@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hotel_booking/screens/confirmbooking.dart';
 import 'package:hotel_booking/theme/colors.dart';
 import 'package:hotel_booking/utils/icon_and_text_widget.dart';
 import 'package:hotel_booking/widgets/app_column.dart';
@@ -10,7 +12,14 @@ class HotelDetails extends StatelessWidget {
   final String? subname;
   final String? price;
   final String? image;
-  HotelDetails({this.name, this.subname, this.price, this.image, Key? key})
+  final String? description;
+  HotelDetails(
+      {this.name,
+      this.subname,
+      this.price,
+      this.image,
+      this.description,
+      Key? key})
       : super(key: key);
 
   @override
@@ -79,6 +88,7 @@ class HotelDetails extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
+                      BigText(text: "${description}")
                     ],
                   ),
                 )),
@@ -92,30 +102,44 @@ class HotelDetails extends StatelessWidget {
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
               )),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Row(
-              children: [
-                SizedBox(width: 20),
-                IconAndTextWidget(
-                    icon: Icons.call_outlined,
-                    text: "Tap to Call",
-                    iconColor: AppColors.iconColor1),
-                SizedBox(width: 40),
-                Container(
-                  padding:
-                      EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-                  child: BigText(
-                    text: "${price}/- Per Night",
-                    color: Colors.white,
-                  ),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.mainColor),
-                )
-              ],
-            ),
-          ]),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  SizedBox(width: 20),
+                  // GestureDetector(
+                  //   onTap: () => Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: ((context) => ConfirmOrder()),
+                  //     ),
+                  //   ),
+                  //   child: IconAndTextWidget(
+                  //       icon: Icons.call_outlined,
+                  //       text: "Tap to Call",
+                  //       iconColor: AppColors.iconColor1),
+                  // ),
+                  SizedBox(width: 40),
+                  GestureDetector(
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage())),
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          top: 20, bottom: 20, left: 20, right: 20),
+                      child: BigText(
+                        text: "${price}/- Per Night",
+                        color: Colors.white,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: AppColors.mainColor),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ));
   }
 }

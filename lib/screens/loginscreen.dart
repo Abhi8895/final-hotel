@@ -151,6 +151,7 @@
 //   }
 // }
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/screens/root_app.dart';
@@ -276,10 +277,12 @@ class _LoginPageState extends State<LoginPage> {
                         AuthController.instance
                             .login(emailController.text.trim(),
                                 passwordController.text.trim())
-                            .then((value) => Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => RootApp())));
+                            .then((value) {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RootApp()));
+                        });
                       },
                       child: Container(
                           width: w * 0.5,

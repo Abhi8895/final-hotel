@@ -26,10 +26,10 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       "page": SearchPage(),
     },
     {
-      "icon": "assets/icons/chat.svg",
+      "icon": "assets/icons/bell.svg",
       "page": Container(
         alignment: Alignment.center,
-        child: Text("Chat Bot"),
+        child: Text("Notification"),
       ),
     },
     {

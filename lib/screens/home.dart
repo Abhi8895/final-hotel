@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
                     name: recommends[index]['name'],
                     image: recommends[index]['image'],
                     price: recommends[index]['price'],
+                    description: recommends[index]['description'],
                   ),
                 );
               },
@@ -203,6 +204,7 @@ class _HomePageState extends State<HomePage> {
                 name: features[index]['name'],
                 image: features[index]['image'],
                 price: features[index]['price'],
+                description: features[index]['description'],
               ),
             );
             print(features[index]['name']);

@@ -1,7 +1,7 @@
 var profile = {
-  "name": "Sangvaleap",
+  "name": "Abhi",
   "image": "https://abhi8895.github.io/Abhijeet/abhi.jpeg",
-  "email": "sangvaleap.vanny@gmail.com"
+  "email": "imcham321@gmail.com"
 };
 
 List categories = [
