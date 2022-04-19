@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_booking/screens/hotel_details.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -53,7 +54,7 @@ class LoginPage extends StatelessWidget {
                     margin: EdgeInsets.only(top: 50),
                     child: Center(
                       child: Text(
-                        "Login",
+                        "Guest Details",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
@@ -65,7 +66,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(30.0),
+              padding: EdgeInsets.all(15.0),
               child: Column(
                 children: <Widget>[
                   Container(
@@ -90,7 +91,7 @@ class LoginPage extends StatelessWidget {
                           child: TextField(
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: "Email or phone Number",
+                              hintText: "Enter Name",
                               hintStyle: TextStyle(color: Colors.grey[400]),
                             ),
                           ),
@@ -100,7 +101,27 @@ class LoginPage extends StatelessWidget {
                           child: TextField(
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: "Password",
+                              hintText: "Phone Number",
+                              hintStyle: TextStyle(color: Colors.grey[400]),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Adults",
+                              hintStyle: TextStyle(color: Colors.grey[400]),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Child",
                               hintStyle: TextStyle(color: Colors.grey[400]),
                             ),
                           ),
@@ -121,20 +142,26 @@ class LoginPage extends StatelessWidget {
                         ])),
                     child: Center(
                       child: Text(
-                        "Login",
+                        "Confirm Booking",
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 70,
+                    height: 30,
                   ),
-                  Text(
-                    "Forgot Password",
-                    style: TextStyle(
-                        color: Color.fromRGBO(143, 148, 251, 1),
-                        fontWeight: FontWeight.normal),
+                  GestureDetector(
+                    // onTap: () => Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => HotelDetails())),
+                    child: Text(
+                      "Back",
+                      style: TextStyle(
+                          color: Color.fromRGBO(143, 148, 251, 1),
+                          fontWeight: FontWeight.normal),
+                    ),
                   ),
                 ],
               ),

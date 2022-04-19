@@ -120,16 +120,18 @@ class HotelDetails extends StatelessWidget {
                   //       text: "Tap to Call",
                   //       iconColor: AppColors.iconColor1),
                   // ),
-                  SizedBox(width: 40),
+                  SizedBox(width: 70),
                   GestureDetector(
                     onTap: () => Navigator.push(context,
                         MaterialPageRoute(builder: (context) => LoginPage())),
                     child: Container(
                       padding: EdgeInsets.only(
                           top: 20, bottom: 20, left: 20, right: 20),
-                      child: BigText(
-                        text: "${price}/- Per Night",
-                        color: Colors.white,
+                      child: Center(
+                        child: BigText(
+                          text: "${price}/- Per Night",
+                          color: Colors.white,
+                        ),
                       ),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
